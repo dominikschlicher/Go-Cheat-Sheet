@@ -1,19 +1,19 @@
 # Go Cheat Sheet
 
+
+For shorter code samples I skip package declaration and imports
+
 <!-- code -->
 ```go
 package main
 
 import "fmt"
-
-func main() {
-	fmt.Println(1)			//OUTPUT: 9
-}
-
 ```
 
-`this` Highlight code
-# Basic Stuff
+## Basic Stuff
+
+- GO-Applications starts always in the package `main`
+- export package elements by capital letter at the beginning
 
 ## Data types
 
