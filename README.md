@@ -1,4 +1,4 @@
-# Go Cheat Sheet
+# Go Cheat Sheet (in progress ...)
 
 
 For shorter code samples I skip package declaration and imports
