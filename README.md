@@ -142,7 +142,66 @@ for i, v := range s {   // similar to foreach-loop; i is the index and v the val
 ```
 
 ## Functions
+### Basics
+```go
+func foo(x, y int) int {
+  return x + y
+}
+
+a := foo(2,3)             //==> 5
+```
+```go
+func foo() (int, int) {
+  return 2, 3
+}
+
+a, b  := foo()             //==> 2, 3
+```
+### Variadic Functions
+- can be called with any number of trailing arguments
+```go
+func foo(nums ...int) {
+    sums := 0
+    for _, num := range nums {
+        total += num
+    }
+}
+```
+
+### Closures
+```go
+func iter() func() int {
+  i:=0
+  return func() int {     //-->anonymous function
+    i += 1
+    return i
+  }
+}
+
+it := iter()
+fmt.Println(it())                  // --> 1  
+fmt.Println(it())                  // --> 2
+```
+
+### Function as parameter or return
+
+
 ## Methods & Structs
+### Structs
+
+```go
+type person struct {
+    name string
+    age  int
+}
+
+person{"Markus", 33}                       // create a struct short version
+p := person{name: "Jannik", age: 11}       // create a struct  long version
+a := p.age                                 // access a structs parameter
+```
+
+### Methods
+
 ## Topic I
 ## Topic II
 ## Topic III
