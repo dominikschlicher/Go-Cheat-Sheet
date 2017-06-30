@@ -269,7 +269,7 @@ func main() {
   var input string      // and dont wait for the function to complete
   fmt.Scanln(&input)   //  Ensures that all the numbers are printed
 }
-``
+```
 
 ## References
 
