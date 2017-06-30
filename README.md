@@ -26,14 +26,14 @@ const foo = "ab"  // a constant
 
 ## Data types
 ### Basic data types
-`bool` \n
-`string`\n
-`int`	  `int8`  `int16`		 `int32`	  `int64`\n
-`uint`	`uint8`	`uinit16`	 `unint32` 	`uint64` 	`uintptr`\n
-`byte` =`uint8`\n
-`rune` =`int32`\n
-`float32` `float64`\n
-`complex64` `complex128`\n
+-`bool`
+-`string`
+-`int`	  `int8`  `int16`		 `int32`	  `int64`
+-`uint`	`uint8`	`uinit16`	 `unint32` 	`uint64` 	`uintptr`
+-`byte` =`uint8`
+-`rune` =`int32`
+-`float32` `float64`
+-`complex64` `complex128`
 
 ### Collections (Array, Slice & Map)
 
