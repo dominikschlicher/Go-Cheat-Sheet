@@ -42,42 +42,49 @@ const foo = "ab"  // a constant
 - `complex64` `complex128`
 
 ### Collections (Array, Slice & Map)
-
+#### Arrays
 - arrays have a fixed size
 ```go
-myArray := [3]int{2, 3, 4}  // init a array of 3 elements of type int
-myArray2 := [...]int{2, 3}  // compiler counts the number of elements
-myArray[3] = 100            // assign the 3rd element of myArray with 100
-len(myArray)                // length of my array
-var myArray = [2][2]int     // init a 2D array
+a := [3]int{2, 3, 4}  // init a array of 3 elements of type int
+b := [...]int{2, 3}  // compiler counts the number of elements
+s[3] = 100            // assign the 3rd element of myArray with 100
+len(a)                // length of my array
+var c = [2][2]int     // init a 2D array
 ```
-
+#### Slice
 - slices have a dynamic size
 - slices are a reference to an array, so it describes a section of an array
 ```go
-mySlice := []int{1, 2, 3}
-mySlice = s[1:]           // ==>  [2,3]
-var s []int
-s = make([]int, 5, 5)     // make takes a type, the length and an optional capacity
+s := []int{1, 2, 3}
+s = s[1:]           // ==>  [2,3]
+var t []int
+t = make([]int, 5, 5)     // make takes a type, the length and an optional capacity
                           // returns a pointer to an array
 ```
 - the length of a slice is the number of elements it contains
 - the capacity is the number of elements in the underlying array
 
 ```go
-mySlice := []int{1, 2}
-mySlice = append(mySlice, 2, 3) // adds elements to the slice ==> [1,2,3,4]
+s := []int{1, 2}
+s = append(s, 2, 3) // adds elements to the slice ==> [1,2,3,4]
 ```
-
-
+#### Maps
+```go
+  m := make(map[string]int)             // empty empty with [key-value]val-type
+  n := map[string]int{"a": 1, "b": 2}   // declare and init a map
+  v1 := m["k1"]                         // get the value for a key
+  delete(m, "k2")                       // removes entry from map
+  _, prs := m["k2"]                     // first parameter is ignored by "blank identifier"
+                                        // prs returns if m contains the key "k2" [boolean]
+```
 ### Pointers
 
 ## Control Structures
 ### `if`-Statement
 ```go
-if a := 3, foo2 == true {   // variable a is available in all branches
+if a := 3, b == true {   // variable a is available in all branches
     // do something
-} else if foo3 == false{
+} else if c == false{
     // do something
 } else {
   // do something
