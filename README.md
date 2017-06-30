@@ -22,9 +22,9 @@ func main() {
 ### Pointers
 
 ## Control Structures
-### 'if'-Statement
-### 'switch'-Statement
-### 'for'-loop
+### `if`-Statement
+### `switch`-Statement
+### `for`-loop
 
 ## Functions
 
