@@ -107,8 +107,7 @@ for i := 0; i < 10; i++ { // the init and post statement are optional
 ```go
 var s = []int{1, 2, 4,}
 
-for i, v := range s {   // similiar to foreach-loop
-                        // i is the index and v the value
+for i, v := range s {   // similar to foreach-loop; i is the index and v the value
 }
 ```
 
