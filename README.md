@@ -42,6 +42,19 @@ const foo = "ab"  // a constant
 - `float32` `float64`
 - `complex64` `complex128`
 
+### Structs
+
+```go
+type person struct {
+    name string
+    age  int
+}
+
+person{"Markus", 33}                       // create a struct
+p := person{name: "Jannik", age: 11}       // create a struct  
+a := p.age                                 // access a structs parameter
+```
+
 ### Collections (Array, Slice & Map)
 #### Arrays
 
@@ -94,16 +107,16 @@ s = append(s, 2, 3) // adds elements to the slice ==> [1,2,3,4]
 
   // dereferencing
   p := &i         // point to i
-  fmt.Println(*p) // read i through the pointer ==> 10
+  fmt.Println(*p) // ==> 10
 
   // indirecting
   *p = 21         // set i through the pointer
-  fmt.Println(i)  // see the new value of i     ==> 21
+  fmt.Println(i)  // ==> 21
 
   // modify a pointers value
   p = &j         // point to j
   *p = *p / 3    // divide j through the pointer
-  fmt.Println(j) // see the new value of j      ==> 3
+  fmt.Println(j) //  ==> 3
 ```
 
 ## Control Structures
@@ -157,7 +170,7 @@ func foo() (int, int) {
 
 a, b  := foo()             //==> 2, 3
 ```
-### Variadic Functions
+### Variadic functions
 - can be called with any number of trailing arguments
 ```go
 func foo(nums ...int) {
@@ -172,39 +185,92 @@ func foo(nums ...int) {
 ```go
 func iter() func() int {
   i:=0
-  return func() int {     //-->anonymous function
+  return func() int {     // anonymous function
     i += 1
     return i
   }
 }
 
 it := iter()
-fmt.Println(it())                  // --> 1  
-fmt.Println(it())                  // --> 2
+fmt.Println(it())                  // ==> 1  
+fmt.Println(it())                  // ==> 2
 ```
 
 ### Function as parameter or return
+### Pointers and functions
 
+## Methods & interfaces
 
-## Methods & Structs
-### Structs
+### Basics
+
+- a method is a function with a special receiver argument.
 
 ```go
-type person struct {
-    name string
-    age  int
+type Vertex struct {
+	X, Y float64
 }
 
-person{"Markus", 33}                       // create a struct short version
-p := person{name: "Jannik", age: 11}       // create a struct  long version
-a := p.age                                 // access a structs parameter
+func (v Vertex) Abs() float64 {         // receiver here is `Vertex` v
+	return math.Sqrt(v.X*v.X + v.Y*v.Y)
+}
+
+func (v *Vertex) Scale(f float64) {    // pointer receiver '*Vertex'
+	v.X = v.X * f
+	v.Y = v.Y * f
+}
+
+func main() {
+	v := Vertex{3, 4}
+  v.scale(10)
+	fmt.Println(v.abs())                 // how to use a method ==> 50
+}
 ```
+### interfaces
 
-### Methods
+```go
+    type Geometry interface {           // basic interface
+        abs() float64
+    }
 
-## Topic I
-## Topic II
-## Topic III
+    type Vertex struct {      
+    	X, Y float64
+    }
+
+    func (v Vertex) Abs() float64 {       // to implement an interface implement all the methods
+    	return math.Sqrt(v.X*v.X + v.Y*v.Y)
+    }
+    func measure(g geometry) {            // generic method
+        fmt.Println(g)
+        fmt.Println(g.area())
+        fmt.Println(g.perim())
+    }
+
+    func main() {
+        v := Vertex{1, height: 2}
+
+        measure(v)
+    }
+```
+## Concurrency
+### GOroutines
+
+- a goroutine is a lightweight thread managed by the Go runtime.
+-  goroutines run in the same address space, so you have to care about shared memory to be 'synchronized'
+
+```go
+func f(n int) {
+  for i := 0; i < 10; i++ {
+    fmt.Println(n, ":", i)
+  }
+}
+
+func main() {
+  go f(0)               // goroutine we return immediately to the next line
+  var input string      // and dont wait for the function to complete
+  fmt.Scanln(&input)   //  Ensures that all the numbers are printed
+}
+``
+
 ## References
 
 - https://gist.github.com/vsouza/77e6b20520d07652ed7d
