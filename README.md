@@ -15,6 +15,9 @@ import "fmt"
 For installing go see here:
 https://gist.github.com/vsouza/77e6b20520d07652ed7d
 
+Take care that go projects are located in die $GOPATH/src folder to fetch all the dependencies 
+.
+
 ## Basic Stuff
 
 - GO-Applications starts always in the package `main`
@@ -252,7 +255,7 @@ func main() {
     }
 ```
 ## Concurrency
-### GOroutines
+### Goroutines
 
 - a goroutine is a lightweight thread managed by the Go runtime.
 -  goroutines run in the same address space, so you have to care about shared memory to be 'synchronized'
@@ -270,6 +273,10 @@ func main() {
   fmt.Scanln(&input)   //  Ensures that all the numbers are printed
 }
 ```
+
+
+### Channel
+
 
 ## References
 
